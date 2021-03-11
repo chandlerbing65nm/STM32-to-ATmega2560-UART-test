@@ -1,0 +1,31 @@
+14:35:24 **** Incremental Build of configuration Debug for project STM32_UART ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DUSE_HAL_DRIVER -DSTM32F401xC -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:104:3: warning: implicit declaration of function 'GET_Image_Resolution' [-Wimplicit-function-declaration]
+   GET_Image_Resolution();
+   ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:244:6: warning: conflicting types for 'GET_Image_Resolution'
+ void GET_Image_Resolution() {
+      ^~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:104:3: note: previous implicit declaration of 'GET_Image_Resolution' was here
+   GET_Image_Resolution();
+   ^~~~~~~~~~~~~~~~~~~~
+arm-none-eabi-gcc -o "STM32_UART.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\chand\Desktop\STM32-to-ATmega2560-UART-test\STM32_UART\STM32F401VCHX_FLASH.ld" --specs=nosys.specs -Wl,-Map="STM32_UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: STM32_UART.elf
+ 
+arm-none-eabi-objdump -h -S  STM32_UART.elf  > "STM32_UART.list"
+arm-none-eabi-objcopy  -O ihex  STM32_UART.elf  "STM32_UART.hex"
+arm-none-eabi-objcopy  -O binary  STM32_UART.elf  "STM32_UART.bin"
+arm-none-eabi-size   STM32_UART.elf 
+   text	   data	    bss	    dec	    hex	filename
+   9184	     24	   1640	  10848	   2a60	STM32_UART.elf
+Finished building: default.size.stdout
+ 
+Finished building: STM32_UART.bin
+Finished building: STM32_UART.hex
+Finished building: STM32_UART.list
+ 
+ 
+ 
